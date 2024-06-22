@@ -13,36 +13,49 @@ class Solution {
         if(head == null || head.next == null){
             return head;
 }
-    
-        ArrayList<Integer> arr = new ArrayList<>();
+        ListNode even = head.next;
+        ListNode odd = head;
+        ListNode evenH = head.next;
         
-        ListNode temp = head;
-        
-        while(temp!= null && temp.next != null){
-            arr.add(temp.val);
-            temp = temp.next.next;
+        while(even != null && even.next != null){
+            odd.next = odd.next.next;
+            even.next = even.next.next;
+            
+            odd = odd.next;
+            even= even.next;
 }
-        if(temp!= null){
-            arr.add(temp.val);
-}
-        temp = head.next;
-        while(temp!= null && temp.next != null){
-            arr.add(temp.val);
-            temp = temp.next.next;
-}
-         if(temp!= null){
-            arr.add(temp.val);
-}
-        int i = 0;
-        temp = head;
-        
-        
-        while(temp != null){
-            temp.val = arr.get(i);
-            i++;
-            temp = temp.next;
-}
+        odd.next = evenH;
         return head;
+    
+//         ArrayList<Integer> arr = new ArrayList<>();
+        
+//         ListNode temp = head;
+        
+//         while(temp!= null && temp.next != null){
+//             arr.add(temp.val);
+//             temp = temp.next.next;
+// }
+//         if(temp!= null){
+//             arr.add(temp.val);
+// }
+//         temp = head.next;
+//         while(temp!= null && temp.next != null){
+//             arr.add(temp.val);
+//             temp = temp.next.next;
+// }
+//          if(temp!= null){
+//             arr.add(temp.val);
+// }
+//         int i = 0;
+//         temp = head;
+        
+        
+//         while(temp != null){
+//             temp.val = arr.get(i);
+//             i++;
+//             temp = temp.next;
+// }
+//         return head;
         
         
     }
